@@ -1,0 +1,30 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="Bright_Launcher.Launch">
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition/>
+			<RowDefinition/>
+			<RowDefinition Height="80"/>
+		</Grid.RowDefinitions>
+		<Border BoxShadow="0 2 20 0 #66000000" Background="#DBDBDB" Grid.Row="3">
+			<WrapPanel Margin="10 10 10 10" VerticalAlignment="Center" HorizontalAlignment="Right">
+				<ComboBox PlaceholderText="游戏账户" x:Name="User" CornerRadius="10" Height="60" Width="200"/>
+				<ComboBox PlaceholderText="游戏版本" x:Name="Versions" SelectionChanged="VersionsSelectionChanged" CornerRadius="10" Height="60" Margin="10 0 0 0" Width="200">
+					<ComboBoxItem Content="1.19.2"/>
+				</ComboBox>
+				<Button Margin="10 0 0 0" HorizontalContentAlignment="Center" CornerRadius="10" VerticalContentAlignment="Center" Background="#CCCCCC" Height="60" Width="200">
+					<Button.Content >
+						<StackPanel>
+							<TextBlock HorizontalAlignment="Center" FontSize="14" TextAlignment="Right" FontWeight="Bold" Text="启动游戏"/>
+							<TextBlock HorizontalAlignment="Center" x:Name="Version" Opacity="0.65" FontSize="13" TextAlignment="Right" FontWeight="Normal" Text="当前未选择版本"/>
+						</StackPanel>
+					</Button.Content>
+				</Button>
+			</WrapPanel>
+		</Border>
+	</Grid>
+</UserControl>
