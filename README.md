@@ -1,6 +1,6 @@
 <div align="Center">
 
-# SetCloud
+# Bright Minecraft Launch
 
 </div>
 
