@@ -76,7 +76,7 @@
 								</Transitions>
 							</Button.Transitions>
 						</Button>
-						<Button Background="#DBDBDB" x:Name="SetButton" HorizontalContentAlignment="Center" Content="设置" Margin="5 0 0 0" Width="70">
+						<Button Background="#DBDBDB" x:Name="SetButton" HorizontalContentAlignment="Center" Click="SettingP" Content="设置" Margin="5 0 0 0" Width="70">
 							<Button.Transitions>
 								<Transitions>
 									<DoubleTransition Property="Height"

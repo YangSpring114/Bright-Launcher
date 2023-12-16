@@ -7,13 +7,13 @@
 	<Grid>
 		<Grid.RowDefinitions>
 			<RowDefinition/>
-			<RowDefinition/>
 			<RowDefinition Height="80"/>
 		</Grid.RowDefinitions>
-		<Border BoxShadow="0 2 20 0 #66000000" Background="#DBDBDB" Grid.Row="3">
-			<ListBox>
-
-			</ListBox>
+		<Border CornerRadius="10" Margin="20 20 20 20" BoxShadow="0 2 20 0 #66000000" Background="#DBDBDB" Grid.Row="0">
+			<ContentControl x:Name="FrameX"/>
+		</Border>
+		<Border BoxShadow="0 2 20 0 #66000000" Background="#DBDBDB" Grid.Row="1">
+			
 		</Border>
 	</Grid>
 </UserControl>

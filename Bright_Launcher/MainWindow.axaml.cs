@@ -48,5 +48,10 @@ namespace Bright_Launcher
         {
             FrameX.Content = new Download();
         }
+
+        private void SettingP(object sender, RoutedEventArgs e)
+        {
+            FrameX.Content = new SettingPage();
+        }
     }
 }
