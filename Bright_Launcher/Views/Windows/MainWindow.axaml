@@ -3,12 +3,28 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d" Width="900" Height="500"
-        x:Class="Bright_Launcher.MainWindow"
+        x:Class="Bright_Launcher.Views.Pages.MainWindow"
+		xmlns:vm="using:Bright_Launcher.ViewModels.Windows"
 		ExtendClientAreaChromeHints="Default"
+		x:DataType="vm:MainWindowViewModel"
 		ExtendClientAreaToDecorationsHint="True"
 		TransparencyLevelHint="AcrylicBlur"
         Background="Transparent"
         Title="Bright">
+	<Window.Styles>
+		<Style Selector="Button.transitions">
+			<Setter Property="Transitions">
+				<Transitions>
+					<DoubleTransition Property="Height"
+									  Duration="0:0:0.45"
+									  Easing="ExponentialEaseOut"/>
+					<DoubleTransition Property="Width"
+									  Duration="0:0:1"
+									  Easing="ExponentialEaseOut"/>
+				</Transitions>
+			</Setter>
+		</Style>
+	</Window.Styles>
 	<Grid>
 		<ExperimentalAcrylicBorder IsHitTestVisible="False">
 			<ExperimentalAcrylicBorder.Material>
@@ -27,8 +43,25 @@
 		<Grid Grid.Row="0">
 			<StackPanel Margin="0 10 0 0">
 				<Border BoxShadow="0 2 15 0 #66000000" PointerEntered="MainWindow_PointerEnter" PointerExited="MainWindow_PointerLeave" x:Name="BorderX" Background="#DBDBDB" CornerRadius="10">
-					<WrapPanel VerticalAlignment="Center" HorizontalAlignment="Center">
-						<Button Click="LaunchP" Background="#DBDBDB" x:Name="HomeButton" HorizontalContentAlignment="Center" Width="70" Content="主页">
+					<WrapPanel Name="Buttons"
+							   VerticalAlignment="Center"
+							   HorizontalAlignment="Center">
+						<Button Width="70"
+								Content="主页"
+								Background="#DBDBDB"
+								CommandParameter="LaunchPage"
+								HorizontalContentAlignment="Center"
+								Command="{Binding NavigationCommand}"
+								Classes="transitions">
+						</Button>
+						
+						<Button Width="70"
+								Content="下载" 
+								Margin="5 0 0 0"
+								Background="#DBDBDB" 
+								CommandParameter="DownloadPage"								
+								HorizontalContentAlignment="Center" 
+								Command="{Binding NavigationCommand}">
 							<Button.Transitions>
 								<Transitions>
 									<DoubleTransition Property="Height"
@@ -40,7 +73,14 @@
 								</Transitions>
 							</Button.Transitions>
 						</Button>
-						<Button Background="#DBDBDB" Click="DownloadP" x:Name="DownloadButton" HorizontalContentAlignment="Center" Content="下载" Margin="5 0 0 0" Width="70">
+						
+						<Button Width="70"
+								Content="拓展" 
+								Margin="5 0 0 0"
+								Background="#DBDBDB"
+								CommandParameter="ExpandPage"
+								HorizontalContentAlignment="Center" 
+								Command="{Binding NavigationCommand}">
 							<Button.Transitions>
 								<Transitions>
 									<DoubleTransition Property="Height"
@@ -52,7 +92,14 @@
 								</Transitions>
 							</Button.Transitions>
 						</Button>
-						<Button Click="ExpandP" Background="#DBDBDB" x:Name="TZButton" HorizontalContentAlignment="Center" Content="拓展" Margin="5 0 0 0" Width="70">
+						
+						<Button Width="70"
+								Content="联机" 
+								Margin="5 0 0 0"
+								Background="#DBDBDB"
+								CommandParameter="ExpandPage"								
+								HorizontalContentAlignment="Center"
+								Command="{Binding NavigationCommand}">
 							<Button.Transitions>
 								<Transitions>
 									<DoubleTransition Property="Height"
@@ -64,19 +111,14 @@
 								</Transitions>
 							</Button.Transitions>
 						</Button>
-						<Button Background="#DBDBDB" x:Name="NATButton" HorizontalContentAlignment="Center" Content="联机" Margin="5 0 0 0" Width="70">
-							<Button.Transitions>
-								<Transitions>
-									<DoubleTransition Property="Height"
-													  Duration="0:0:0.45"
-													  Easing="ExponentialEaseOut"/>
-									<DoubleTransition Property="Width"
-													  Duration="0:0:1"
-													  Easing="ExponentialEaseOut"/>
-								</Transitions>
-							</Button.Transitions>
-						</Button>
-						<Button Background="#DBDBDB" x:Name="SetButton" HorizontalContentAlignment="Center" Click="SettingP" Content="设置" Margin="5 0 0 0" Width="70">
+						
+						<Button Width="70"
+								Content="设置"
+								Margin="5 0 0 0"
+								Background="#DBDBDB"
+								HorizontalContentAlignment="Center"												
+								Command="{Binding NavigationCommand}"
+								CommandParameter="Setting.SettingPage">
 							<Button.Transitions>
 								<Transitions>
 									<DoubleTransition Property="Height"
@@ -102,10 +144,10 @@
 					<Border.Transitions>
 						<Transitions>
 							<DoubleTransition Property="Height"
-											  Duration="0:0:0.95"
+											  Duration="0:0:0.35"
 											  Easing="ExponentialEaseOut"/>
 							<DoubleTransition Property="Width"
-											  Duration="0:0:1"
+											  Duration="0:0:0.45"
 											  Easing="ExponentialEaseOut"/>
 						</Transitions>
 					</Border.Transitions>
@@ -113,7 +155,7 @@
 			</StackPanel>
 		</Grid>
 		<Grid x:Name="GridX" Grid.Row="1">
-			<ContentControl x:Name="FrameX"/>
+			<ContentControl Content="{Binding Content}"/>
 
 			<Grid.Transitions>
 				<Transitions>

@@ -3,7 +3,7 @@ using Avalonia.Controls;
 using Avalonia.Interactivity;
 using Avalonia.Markup.Xaml;
 
-namespace Bright_Launcher;
+namespace Bright_Launcher.Views.Pages.Setting;
 
 public partial class LaunchSettingPage : UserControl
 {
@@ -15,6 +15,6 @@ public partial class LaunchSettingPage : UserControl
 
     private void AccountP(object sender, RoutedEventArgs e)
     {
-        SettingPage.SP.FrameX.Content = new Account();
+        SettingPage.SP.FrameX.Content = new AccountSettingPage();
     }
 }

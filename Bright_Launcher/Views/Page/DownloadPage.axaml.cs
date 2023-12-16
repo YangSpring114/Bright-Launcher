@@ -2,20 +2,16 @@ using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Interactivity;
 using Avalonia.Markup.Xaml;
-using MinecraftLaunch.Modules.Installer;
 using System;
 using System.Threading.Tasks;
 using MinecraftLaunch;
-using MinecraftLaunch.Modules.Models.Launch;
-using MinecraftLaunch.Modules.Models.Auth;
+using MinecraftLaunch.Classes.Models.Auth;
+namespace Bright_Launcher.Views.Pages;
 
-namespace Bright_Launcher;
-
-public partial class Download : UserControl
+public partial class DownloadPage : UserControl
 {
-    public static LaunchConfig LaunchConfig { get; } = new LaunchConfig();
     public Account UserInfo { get; private set; }
-    public Download()
+    public DownloadPage()
     {
         InitializeComponent();
     }

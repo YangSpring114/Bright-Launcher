@@ -2,11 +2,11 @@ using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Markup.Xaml;
 
-namespace Bright_Launcher;
+namespace Bright_Launcher.Views.Pages;
 
-public partial class Expand : UserControl
+public partial class ExpandPage : UserControl
 {
-    public Expand()
+    public ExpandPage()
     {
         InitializeComponent();
     }
