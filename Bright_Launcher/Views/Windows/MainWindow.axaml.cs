@@ -27,21 +27,5 @@ namespace Bright_Launcher.Views.Pages {
                 item.Height = 0;
             }
         }
-
-        private void LaunchP(object sender, RoutedEventArgs e) {
-            //FrameX.Content = new LaunchPage();
-        }
-
-        private void ExpandP(object sender, RoutedEventArgs e) {
-            //FrameX.Content = new ExpandPage();
-        }
-
-        private void DownloadP(object sender, RoutedEventArgs e) {
-            //FrameX.Content = new DownloadPage();
-        }
-
-        private void SettingP(object sender, RoutedEventArgs e) {
-            //FrameX.Content = new SettingPage();
-        }
     }
 }

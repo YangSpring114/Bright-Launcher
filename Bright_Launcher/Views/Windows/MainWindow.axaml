@@ -49,87 +49,46 @@
 						<Button Width="70"
 								Content="主页"
 								Background="#DBDBDB"
+								Classes="transitions"
 								CommandParameter="LaunchPage"
 								HorizontalContentAlignment="Center"
-								Command="{Binding NavigationCommand}"
-								Classes="transitions">
-						</Button>
+								Command="{Binding NavigationCommand}"/>
 						
 						<Button Width="70"
 								Content="下载" 
 								Margin="5 0 0 0"
 								Background="#DBDBDB" 
+								Classes="transitions"
 								CommandParameter="DownloadPage"								
 								HorizontalContentAlignment="Center" 
-								Command="{Binding NavigationCommand}">
-							<Button.Transitions>
-								<Transitions>
-									<DoubleTransition Property="Height"
-													  Duration="0:0:0.45"
-													  Easing="ExponentialEaseOut"/>
-									<DoubleTransition Property="Width"
-													  Duration="0:0:1"
-													  Easing="ExponentialEaseOut"/>
-								</Transitions>
-							</Button.Transitions>
-						</Button>
+								Command="{Binding NavigationCommand}"/>
 						
 						<Button Width="70"
 								Content="拓展" 
 								Margin="5 0 0 0"
 								Background="#DBDBDB"
+								Classes="transitions"
 								CommandParameter="ExpandPage"
 								HorizontalContentAlignment="Center" 
-								Command="{Binding NavigationCommand}">
-							<Button.Transitions>
-								<Transitions>
-									<DoubleTransition Property="Height"
-													  Duration="0:0:0.45"
-													  Easing="ExponentialEaseOut"/>
-									<DoubleTransition Property="Width"
-													  Duration="0:0:1"
-													  Easing="ExponentialEaseOut"/>
-								</Transitions>
-							</Button.Transitions>
-						</Button>
+								Command="{Binding NavigationCommand}"/>
 						
 						<Button Width="70"
 								Content="联机" 
 								Margin="5 0 0 0"
 								Background="#DBDBDB"
+								Classes="transitions"
 								CommandParameter="ExpandPage"								
 								HorizontalContentAlignment="Center"
-								Command="{Binding NavigationCommand}">
-							<Button.Transitions>
-								<Transitions>
-									<DoubleTransition Property="Height"
-													  Duration="0:0:0.45"
-													  Easing="ExponentialEaseOut"/>
-									<DoubleTransition Property="Width"
-													  Duration="0:0:1"
-													  Easing="ExponentialEaseOut"/>
-								</Transitions>
-							</Button.Transitions>
-						</Button>
+								Command="{Binding NavigationCommand}"/>
 						
 						<Button Width="70"
 								Content="设置"
 								Margin="5 0 0 0"
 								Background="#DBDBDB"
+								Classes="transitions"								
 								HorizontalContentAlignment="Center"												
 								Command="{Binding NavigationCommand}"
-								CommandParameter="Setting.SettingPage">
-							<Button.Transitions>
-								<Transitions>
-									<DoubleTransition Property="Height"
-													  Duration="0:0:0.45"
-													  Easing="ExponentialEaseOut"/>
-									<DoubleTransition Property="Width"
-													  Duration="0:0:1"
-													  Easing="ExponentialEaseOut"/>
-								</Transitions>
-							</Button.Transitions>
-						</Button>
+								CommandParameter="Setting.SettingPage"/>
 					</WrapPanel>
 					<Border.Styles>
 						<Style Selector="Border">
