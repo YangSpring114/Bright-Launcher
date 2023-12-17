@@ -1,24 +1,64 @@
 using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Markup.Xaml;
+using Bright_Launcher.Services.Launch;
+using Bright_Launcher.Services.Setting;
+using Bright_Launcher.Services.UI;
+using Bright_Launcher.ViewModels.Windows;
+using Bright_Launcher.Views.Pages;
+using Bright_Launcher.Views.Pages.Setting;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+using System;
 
-namespace Bright_Launcher
-{
-    public partial class App : Application
-    {
-        public override void Initialize()
-        {
-            AvaloniaXamlLoader.Load(this);
+namespace Bright_Launcher {
+    public partial class App : Application {
+        private static IHost _host;
+
+        public static IServiceProvider ServiceProvider => _host.Services;
+
+        public override async void Initialize() {
+            base.Initialize();
+            _host = GetHost().Build();
+            await _host.RunAsync();
         }
 
-        public override void OnFrameworkInitializationCompleted()
-        {
-            if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
-            {
-                desktop.MainWindow = new MainWindow();
+        public override void OnFrameworkInitializationCompleted() {
+            if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop) {
+                ServiceProvider.GetService<SettingService>();
+                desktop.MainWindow = new MainWindow {
+                    DataContext = App.ServiceProvider.GetService<MainWindowViewModel>()
+                };
             }
 
             base.OnFrameworkInitializationCompleted();
+        }
+
+        public IHostBuilder GetHost() {
+            return Host.CreateDefaultBuilder().ConfigureServices((_, services) => {
+                ConfigureServices(services);
+            }).ConfigureServices((_, services) => {
+                ConfigureViews(services);
+            });
+        }
+
+        private static void ConfigureViews(IServiceCollection services) {
+            //Views
+            services.AddSingleton<MainWindow>();//由于MainWindow只有且只会有一个实例，因此采用单例而非瞬态
+            services.AddTransient<LaunchPage>();
+            services.AddTransient<ExpandPage>();
+            services.AddTransient<SettingPage>();
+            services.AddTransient<DownloadPage>();
+
+            //ViewModels
+            services.AddSingleton<MainWindowViewModel>();
+        }
+
+        private static void ConfigureServices(IServiceCollection services) {
+            services.AddSingleton<GameService>();
+            services.AddSingleton<LaunchService>();
+            services.AddSingleton<SettingService>();
+            services.AddSingleton<NavigationService>();
         }
     }
 }

@@ -3,11 +3,11 @@ using Avalonia.Controls;
 using Avalonia.Interactivity;
 using Avalonia.Markup.Xaml;
 
-namespace Bright_Launcher;
+namespace Bright_Launcher.Views.Pages.Setting;
 
-public partial class Account : UserControl
+public partial class AccountSettingPage : UserControl
 {
-    public Account()
+    public AccountSettingPage()
     {
         InitializeComponent();
     }

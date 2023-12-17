@@ -16,7 +16,6 @@ namespace Bright_Launcher
         public static AppBuilder BuildAvaloniaApp()
             => AppBuilder.Configure<App>()
                 .UsePlatformDetect()
-                .WithInterFont()
                 .LogToTrace();
     }
 }

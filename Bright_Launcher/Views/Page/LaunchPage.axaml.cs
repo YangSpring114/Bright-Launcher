@@ -1,14 +1,13 @@
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Markup.Xaml;
-using MinecraftLaunch.Launch;
 using MinecraftLaunch;
 
-namespace Bright_Launcher;
+namespace Bright_Launcher.Views.Pages;
 
-public partial class Launch : UserControl
+public partial class LaunchPage : UserControl
 {
-    public Launch()
+    public LaunchPage()
     {
         InitializeComponent();
     }
