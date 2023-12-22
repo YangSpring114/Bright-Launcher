@@ -3,19 +3,49 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+			 xmlns:vm="using:Bright_Launcher.ViewModels.Pages.Setting"
+			 x:DataType="vm:LaunchSettingPageViewModel"
              x:Class="Bright_Launcher.Views.Pages.Setting.LaunchSettingPage">
 	<StackPanel Margin="20 20 20 20">
 		<TextBlock FontSize="18" FontWeight="Bold" Text="启动设置"/>
 		<StackPanel Margin="20 10 0 0">
 			<StackPanel>
-				<TextBlock Text="基础项" FontSize="15" FontWeight="Bold"/>
+				<TextBlock Text="基础项"
+						   FontSize="15"
+						   FontWeight="Bold"/>
 				<WrapPanel Margin="20 10 0 0">
-					<TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="选择Java："/>
-					<ComboBox x:Name="JavaCombobox" CornerRadius="10" PlaceholderText="请选择一个合适的Java" Width="250" />
+					<TextBlock VerticalAlignment="Center"
+							   HorizontalAlignment="Center" 
+							   Text="选择Java："/>
+
+					<StackPanel Orientation="Horizontal"
+								Spacing="10">
+						<ComboBox Width="250"
+		                          CornerRadius="10"
+		                          ItemsSource="{Binding Javas}"
+		                          PlaceholderText="请选择一个合适的Java">
+							<ComboBox.ItemTemplate>
+								<DataTemplate>
+									<TextBlock Text="{Binding JavaPath}"/>
+								</DataTemplate>
+							</ComboBox.ItemTemplate>
+						</ComboBox>
+						
+						<Button Content="自动找 Java"
+								CornerRadius="10"
+								Command="{Binding FindJavaCommand}"/>
+					</StackPanel>
 				</WrapPanel>
 				<WrapPanel Margin="20 10 0 0">
-					<TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="选择账户： "/>
-					<Button Background="#CCCCCC" CornerRadius="10" Content="前往账户系统" Click="AccountP" Width="250" />
+					<TextBlock VerticalAlignment="Center" 
+							   HorizontalAlignment="Center" Text="选择账户： "/>
+					
+					<Button Background="#CCCCCC"
+							CornerRadius="10"
+							HorizontalContentAlignment="Center"
+							Content="前往账户系统" 
+							Click="AccountP" 
+							Width="250" />
 				</WrapPanel>
 			</StackPanel>
 		</StackPanel>
@@ -23,8 +53,9 @@
 			<StackPanel>
 				<TextBlock Text="进阶项" FontSize="15" FontWeight="Bold"/>
 				<WrapPanel Margin="20 10 0 0">
-					<TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="JVM参数："/>
-					<TextBox x:Name="JVMText" CornerRadius="10" Width="250"/>
+					<TextBlock VerticalAlignment="Center" 
+							   HorizontalAlignment="Center" Text="JVM参数："/>
+					<TextBox CornerRadius="10" Width="250"/>
 				</WrapPanel>
 			</StackPanel>
 		</StackPanel>

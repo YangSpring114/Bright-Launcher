@@ -4,6 +4,8 @@ using Avalonia.Markup.Xaml;
 using Bright_Launcher.Services.Launch;
 using Bright_Launcher.Services.Setting;
 using Bright_Launcher.Services.UI;
+using Bright_Launcher.ViewModels.Pages;
+using Bright_Launcher.ViewModels.Pages.Setting;
 using Bright_Launcher.ViewModels.Windows;
 using Bright_Launcher.Views.Pages;
 using Bright_Launcher.Views.Pages.Setting;
@@ -27,11 +29,18 @@ namespace Bright_Launcher {
             if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop) {
                 ServiceProvider.GetService<SettingService>();
                 desktop.MainWindow = new MainWindow {
-                    DataContext = App.ServiceProvider.GetService<MainWindowViewModel>()
+                    DataContext = ServiceProvider.GetService<MainWindowViewModel>()
                 };
+
+                desktop.Exit += OnExit;
             }
 
             base.OnFrameworkInitializationCompleted();
+        }
+
+        private async void OnExit(object sender, ControlledApplicationLifetimeExitEventArgs e) {
+            ServiceProvider.GetService<SettingService>()
+                .Save();
         }
 
         public IHostBuilder GetHost() {
@@ -52,9 +61,13 @@ namespace Bright_Launcher {
 
             //ViewModels
             services.AddSingleton<MainWindowViewModel>();
+            services.AddTransient<LaunchPageViewModel>();
+            services.AddTransient<SettingPageViewModel>();
+            services.AddTransient<LaunchSettingPageViewModel>();
         }
 
         private static void ConfigureServices(IServiceCollection services) {
+            services.AddSingleton<JavaService>();
             services.AddSingleton<GameService>();
             services.AddSingleton<LaunchService>();
             services.AddSingleton<SettingService>();

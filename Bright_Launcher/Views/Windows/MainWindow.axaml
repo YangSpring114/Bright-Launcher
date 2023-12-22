@@ -35,95 +35,101 @@
 					MaterialOpacity="0.65" />
 			</ExperimentalAcrylicBorder.Material>
 		</ExperimentalAcrylicBorder>
-	<Grid>
-		<Grid.RowDefinitions>
-			<RowDefinition Height="35"/>
-			<RowDefinition/>
-		</Grid.RowDefinitions>
-		<Grid Grid.Row="0">
-			<StackPanel Margin="0 10 0 0">
-				<Border BoxShadow="0 2 15 0 #66000000" PointerEntered="MainWindow_PointerEnter" PointerExited="MainWindow_PointerLeave" x:Name="BorderX" Background="#DBDBDB" CornerRadius="10">
-					<WrapPanel Name="Buttons"
-							   VerticalAlignment="Center"
-							   HorizontalAlignment="Center">
-						<Button Width="70"
-								Content="主页"
-								Background="#DBDBDB"
-								Classes="transitions"
-								CommandParameter="LaunchPage"
-								HorizontalContentAlignment="Center"
-								Command="{Binding NavigationCommand}"/>
-						
-						<Button Width="70"
-								Content="下载" 
-								Margin="5 0 0 0"
-								Background="#DBDBDB" 
-								Classes="transitions"
-								CommandParameter="DownloadPage"								
-								HorizontalContentAlignment="Center" 
-								Command="{Binding NavigationCommand}"/>
-						
-						<Button Width="70"
-								Content="拓展" 
-								Margin="5 0 0 0"
-								Background="#DBDBDB"
-								Classes="transitions"
-								CommandParameter="ExpandPage"
-								HorizontalContentAlignment="Center" 
-								Command="{Binding NavigationCommand}"/>
-						
-						<Button Width="70"
-								Content="联机" 
-								Margin="5 0 0 0"
-								Background="#DBDBDB"
-								Classes="transitions"
-								CommandParameter="ExpandPage"								
-								HorizontalContentAlignment="Center"
-								Command="{Binding NavigationCommand}"/>
-						
-						<Button Width="70"
-								Content="设置"
-								Margin="5 0 0 0"
-								Background="#DBDBDB"
-								Classes="transitions"								
-								HorizontalContentAlignment="Center"												
-								Command="{Binding NavigationCommand}"
-								CommandParameter="Setting.SettingPage"/>
-					</WrapPanel>
-					<Border.Styles>
-						<Style Selector="Border">
-							<Setter Property="Width" Value="400"/>
-							<Setter Property="Height" Value="10"/>
-						</Style>
-						<Style Selector="Border:pointerover">
-							<Setter Property="Width" Value="450"/>
-							<Setter Property="Height" Value="35"/>
-						</Style>
-					</Border.Styles>
-					<Border.Transitions>
-						<Transitions>
-							<DoubleTransition Property="Height"
-											  Duration="0:0:0.35"
-											  Easing="ExponentialEaseOut"/>
-							<DoubleTransition Property="Width"
-											  Duration="0:0:0.45"
-											  Easing="ExponentialEaseOut"/>
-						</Transitions>
-					</Border.Transitions>
-				</Border>
-			</StackPanel>
-		</Grid>
-		<Grid x:Name="GridX" Grid.Row="1">
-			<ContentControl Content="{Binding Content}"/>
+		
+		<Grid>
+			<Grid.RowDefinitions>
+				<RowDefinition Height="35"/>
+				<RowDefinition/>
+			</Grid.RowDefinitions>
+			<Grid Grid.Row="0">
+				<StackPanel Margin="0 10 0 0">
+					<Border BoxShadow="0 2 15 0 #66000000"
+							Background="#DBDBDB"
+							CornerRadius="10"
+							PointerExited="MainWindow_PointerLeave"
+							PointerEntered="MainWindow_PointerEnter">
+						<WrapPanel Name="Buttons"
+								   VerticalAlignment="Center"
+								   HorizontalAlignment="Center">
+							<Button Width="70"
+									Content="主页"
+									Background="#DBDBDB"
+									Classes="transitions"
+									CommandParameter="LaunchPage"
+									HorizontalContentAlignment="Center"
+									Command="{Binding NavigationCommand}"/>
 
-			<Grid.Transitions>
-				<Transitions>
-					<ThicknessTransition Property="Margin"
-										 Duration="0:0:0.45"
-										 Easing="ExponentialEaseOut"/>
-				</Transitions>
-			</Grid.Transitions>
+							<Button Width="70"
+									Content="下载"
+									Margin="5 0 0 0"
+									Background="#DBDBDB"
+									Classes="transitions"
+									CommandParameter="DownloadPage"
+									HorizontalContentAlignment="Center"
+									Command="{Binding NavigationCommand}"/>
+
+							<Button Width="70"
+									Content="拓展"
+									Margin="5 0 0 0"
+									Background="#DBDBDB"
+									Classes="transitions"
+									CommandParameter="ExpandPage"
+									HorizontalContentAlignment="Center"
+									Command="{Binding NavigationCommand}"/>
+
+							<Button Width="70"
+									Content="联机"
+									Margin="5 0 0 0"
+									Background="#DBDBDB"
+									Classes="transitions"
+									CommandParameter="ExpandPage"
+									HorizontalContentAlignment="Center"
+									Command="{Binding NavigationCommand}"/>
+
+							<Button Width="70"
+									Content="设置"
+									Margin="5 0 0 0"
+									Background="#DBDBDB"
+									Classes="transitions"
+									HorizontalContentAlignment="Center"
+									Command="{Binding NavigationCommand}"
+									CommandParameter="Setting.SettingPage"/>
+						</WrapPanel>
+						<Border.Styles>
+							<Style Selector="Border">
+								<Setter Property="Width" Value="400"/>
+								<Setter Property="Height" Value="10"/>
+							</Style>
+							<Style Selector="Border:pointerover">
+								<Setter Property="Width" Value="450"/>
+								<Setter Property="Height" Value="35"/>
+							</Style>
+						</Border.Styles>
+
+						<Border.Transitions>
+							<Transitions>
+								<DoubleTransition Property="Height"
+												  Duration="0:0:0.35"
+												  Easing="ExponentialEaseOut"/>
+								<DoubleTransition Property="Width"
+												  Duration="0:0:0.45"
+												  Easing="ExponentialEaseOut"/>
+							</Transitions>
+						</Border.Transitions>
+					</Border>
+				</StackPanel>
+			</Grid>
+			<Grid x:Name="GridX" Grid.Row="1">
+				<ContentControl Content="{Binding Content}"/>
+
+				<Grid.Transitions>
+					<Transitions>
+						<ThicknessTransition Property="Margin"
+											 Duration="0:0:0.45"
+											 Easing="ExponentialEaseOut"/>
+					</Transitions>
+				</Grid.Transitions>
+			</Grid>
 		</Grid>
-	</Grid>
 	</Grid>
 </Window>
