@@ -1,25 +1,12 @@
-using Avalonia;
 using Avalonia.Controls;
-using Avalonia.Markup.Xaml;
-using MinecraftLaunch;
+using Bright_Launcher.ViewModels.Pages;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace Bright_Launcher.Views.Pages;
 
-public partial class LaunchPage : UserControl
-{
-    public LaunchPage()
-    {
+public partial class LaunchPage : UserControl {
+    public LaunchPage() {
         InitializeComponent();
+        DataContext = App.ServiceProvider.GetService<LaunchPageViewModel>();
     }
-
-    private void VersionsSelectionChanged(object sender, SelectionChangedEventArgs e)
-    {
-        if(Versions.SelectedItem != null)
-        {
-            ComboBoxItem Item = Versions.SelectedItem as ComboBoxItem;
-            Version.Text = Item.Content.ToString();
-        }
-
-    }
-
 }

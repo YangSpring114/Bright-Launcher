@@ -16,6 +16,7 @@ namespace Bright_Launcher.Services.UI {
 
             WeakReferenceMessenger.Default.Send(new PageMessage {
                 Page = page,
+                PageName = key
             });
         }
     }

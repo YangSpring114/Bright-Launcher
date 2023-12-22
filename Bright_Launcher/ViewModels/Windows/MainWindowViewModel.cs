@@ -20,11 +20,13 @@ namespace Bright_Launcher.ViewModels.Windows {
 
         [RelayCommand]
         private void Navigation(string name) {
-            _navigationService?.Navigation(name);
+            _navigationService?.Navigation(name);   
         }
 
         private void HandleMessage(object obj, PageMessage message) {
-            Content = message.Page;
+            if (message.PageName[8..]?.Length <= 11) {
+                Content = message.Page;
+            }
         }
     }
 }

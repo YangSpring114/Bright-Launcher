@@ -14,14 +14,15 @@ namespace Bright_Launcher.Views.Pages {
         public MainWindow() {
             InitializeComponent();
         }
-        private void MainWindow_PointerEnter(object? sender, PointerEventArgs e) {
+
+        private void MainWindow_PointerEnter(object sender, PointerEventArgs e) {
             GridX.Margin = new Thickness(0, 20, 0, 0);
             foreach (var item in Buttons.Children) {
                 item.Height = 30;
             }
         }
 
-        private void MainWindow_PointerLeave(object? sender, PointerEventArgs e) {
+        private void MainWindow_PointerLeave(object sender, PointerEventArgs e) {
             GridX.Margin = new Thickness(0, 0, 0, 0);
             foreach (var item in Buttons.Children) {
                 item.Height = 0;
