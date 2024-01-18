@@ -14,6 +14,7 @@ using Bright_Launcher.Views.Pages.Setting;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System;
+using Bright_Launcher.Services;
 
 namespace Bright_Launcher {
     public partial class App : Application {
@@ -55,7 +56,7 @@ namespace Bright_Launcher {
 
         private static void ConfigureViews(IServiceCollection services) {
             //Views
-            services.AddSingleton<MainWindow>();//ÓÉÓÚMainWindowÖ»ÓÐÇÒÖ»»áÓÐÒ»¸öÊµÀý£¬Òò´Ë²ÉÓÃµ¥Àý¶ø·ÇË²Ì¬
+            services.AddSingleton<MainWindow>();//ï¿½ï¿½ï¿½ï¿½MainWindowÖ»ï¿½ï¿½ï¿½ï¿½Ö»ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½Êµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ë²ï¿½ï¿½Ãµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ë²Ì¬
             services.AddTransient<LaunchPage>();
             services.AddTransient<ExpandPage>();
             services.AddSingleton<SettingPage>();
@@ -79,6 +80,7 @@ namespace Bright_Launcher {
             services.AddSingleton<DialogService>();
             services.AddSingleton<LaunchService>();
             services.AddSingleton<SettingService>();
+            services.AddSingleton<InstallService>();
             services.AddSingleton<NavigationService>();
         }
     }
